@@ -2,10 +2,6 @@ require 'jwt'
 require 'bcrypt'
 
 class AuthController < ApplicationController
-  def get
-  	message={ success: true }
-  	render :json => message
-  end
   def post
   	if params[:username]==nil
   		message={ success: false, message: "No username provided!"}
@@ -33,7 +29,7 @@ class AuthController < ApplicationController
 
   			payload = {:username => username, :password => password, :exp => exp }
   			token = JWT.encode(payload,Rails.application.secrets.jwt_key,'HS256')
-  			
+
   			message={ success: true, message: "ok", token: token}
   		else
   			message={ success: false, message: "Wrong password!"}

@@ -44,6 +44,8 @@ GEM
     byebug (9.0.6)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -127,6 +129,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   byebug
+  email_validator
   jbuilder (~> 2.0)
   jwt
   mysql2 (>= 0.3.13, < 0.5)

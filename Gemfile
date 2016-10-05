@@ -37,3 +37,4 @@ end
 
 gem 'jwt'
 gem 'bcrypt'
+gem 'email_validator'

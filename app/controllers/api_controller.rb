@@ -70,7 +70,14 @@ class ApiController < ApplicationController
   		message={success: true, message: "Account created!"}
   		render :json => message
   	else
-  		message={success: true, message: "Invalid data!"}
+  		if user.errors.messages[:username]!=nil
+  			error_message=user.errors.messages[:username][0]
+  		elsif user.errors.messages[:password]!=nil
+  			error_message=user.errors.messages[:password][0]
+  		else
+  			error_message=user.errors.messages[:email][0]
+  		end
+  		message={success: false, message: error_message}
   		render :json => message
   	end
 
